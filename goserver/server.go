@@ -11,5 +11,5 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", viewHandler)
-	http.ListenAndServe(":8010", nil)
+	http.ListenAndServe(":5002", nil)
 }
