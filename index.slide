@@ -1,0 +1,36 @@
+Concurrency NodeJS and Golang
+December 2014
+
+Drew Wells
+RetailMeNot
+dwells@rmn.com
+@coldfuser
+http://go-talks.appspot.com/github.com/drewwells/concurrency/index.slide
+
+* Interest over time
+
+.image images/interest.png _ 800
+.caption Google Trends for [[http://www.google.com/trends/explore#q=nodejs%2C%20golang][NodeJS and Golang]]
+
+* A long way to go
+
+.image images/php.png _ 800
+
+* NodeJS
+
+* Design
+
+Almost no function in Node directly performs I/O, so the process never blocks. Because nothing blocks, less-than-expert programmers are able to develop scalable systems.
+
+# http://nodejs.org/about/
+
+* HTTP example
+
+.code nodeserver/server.js
+
+* Golang
+
+* Simplicity
+.image images/perfection.jpg _ 600
+.caption Antoine de Saint-Exupery
+
