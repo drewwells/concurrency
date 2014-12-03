@@ -58,7 +58,11 @@ Syntax derived from C
 
 * Design
 
-Almost no function in Node directly performs I/O, so the process never blocks. Because nothing blocks, less-than-expert programmers are able to develop scalable systems.
+- Single Threaded
+# Within the Node.js runtime, each connection is a small heap allocation.
+- Event Loop
+# Not a new idea, built on Python/Ruby libraries
+# Almost no function in Node directly performs I/O, so the process never blocks. Because nothing blocks, less-than-expert programmers are able to develop scalable systems.
 
 # http://nodejs.org/about/
 
@@ -66,12 +70,25 @@ Almost no function in Node directly performs I/O, so the process never blocks. B
 
 Node is similar in design to and influenced by systems like Ruby's Event Machine or Python's Twisted.
 
+* walker.js
+
+.code example/walker.js
 
 * HTTP example
 
 .code nodeserver/server.js
 
 # In Node there is no such start-the-event-loop call. Node simply enters the event loop after executing the input script. Node exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript -— the event loop is hidden from the user.
+
+* Debug tools
+
+    node debug server.js
+
+
+
+
+.link https://github.com/node-inspector/node-inspector node-inspector
+
 
 * child_process
 Just because Node is designed without threads, doesn't mean you cannot take advantage of multiple cores in your environment. You can spawn child processes that are easy to communicate with by using our child_process.fork() API.
