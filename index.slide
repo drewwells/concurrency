@@ -7,6 +7,30 @@ dwells@rmn.com
 @coldfuser
 http://go-talks.appspot.com/github.com/drewwells/concurrency/index.slide
 
+* Birthdays
+
+- NodeJS 2009, JavaScript 1995
+# semantics and design influenced by Self and Scheme
+- Go 2007
+
+Syntax derived from C
+
+* Why NodeJS?
+
+- Ryan Dahl, creator of NodeJS, was inspired to create Node.js after seeing a file upload progress bar on Flickr.
+
+.image images/flickr.png _ 700
+
+* Why Golang?
+
+- Go is about language design in the service of software engineering.
+
+# Garbage Collection, Multicore processors, networked systems, efficient dependency management, fast build times
+
+.image images/datacenter.jpg _ 700
+
+* Why not Language ___?
+
 * Interest over time
 
 .image images/interest.png _ 800
@@ -16,6 +40,20 @@ http://go-talks.appspot.com/github.com/drewwells/concurrency/index.slide
 
 .image images/php.png _ 800
 
+* Why not Python/Ruby/Java/etc?
+
+* What language?
+
+*** NodeJS
+
+.image images/nodejslanguage.png _ 800
+.caption languages used to create NodeJS
+
+*** Go
+
+- 70% Go, 30% C
+
+
 * NodeJS
 
 * Design
@@ -24,9 +62,19 @@ Almost no function in Node directly performs I/O, so the process never blocks. B
 
 # http://nodejs.org/about/
 
+* If you can't beat them, join them
+
+Node is similar in design to and influenced by systems like Ruby's Event Machine or Python's Twisted.
+
+
 * HTTP example
 
 .code nodeserver/server.js
+
+# In Node there is no such start-the-event-loop call. Node simply enters the event loop after executing the input script. Node exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript -— the event loop is hidden from the user.
+
+* child_process
+Just because Node is designed without threads, doesn't mean you cannot take advantage of multiple cores in your environment. You can spawn child processes that are easy to communicate with by using our child_process.fork() API.
 
 * Golang
 
