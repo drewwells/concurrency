@@ -119,12 +119,6 @@ JBoss Netty, Apache MINA, libevent and libev
 
 # In Node there is no such start-the-event-loop call. Node simply enters the event loop after executing the input script. Node exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript -— the event loop is hidden from the user.
 
-* Debug tools
-
-    node debug server.js
-
-.link https://github.com/node-inspector/node-inspector node-inspector
-
 * child_process.fork()
 
 - No shared memory
@@ -133,6 +127,12 @@ JBoss Netty, Apache MINA, libevent and libev
 
 - synchronous channel via child.send()
 # Sending large data in this way is ill advised
+
+* Debug tools
+
+    node debug server.js
+
+.link https://github.com/node-inspector/node-inspector node-inspector
 
 * Golang
 
