@@ -31,6 +31,24 @@ Syntax derived from C
 
 * Why not Language ___?
 
+* Python
+
+- Twisted: The granddaddy of Python reactor frameworks: seems complex and a bit bloated however. Steep learning curve for a small task.
+
+- Eventlet: From the guys at lindenlab. Greenlet based framework that's geared towards these kinds of tasks. I had a look at the code though and it's not too pretty: non-pep8 compliant, scattered with prints (why do people do this in a framework!?), API seems a little inconsistent.
+
+- PyEv: Immature, doesn't seem to be anyone using it right now though it is based on libevent so it's got a solid backend.
+
+- asyncore: From the stdlib: über low-level, seems like a lot of legwork involved just to get something off the ground.
+
+- tornado: Though this is a server oriented product designed to server dynamic websites it does feature an async HTTP client and a simple ioloop. [edit: doesn't run on Windows unfortunately, which counts it out for me - its a requirement for me to support this lame platform]
+
+* Ruby
+
+- EventMachine is an event-driven I/O and lightweight concurrency library for Ruby. It provides event-driven I/O using the Reactor pattern, much like JBoss Netty, Apache MINA, Python's Twisted, Node.js, libevent and libev.
+
+- Cool.io is an alternative to EventMachine, albeit one which using Ruby’s own native I/O primitives rather than reinventing them, and does as much as possible in Ruby instead of C, which should make it easier for interested contributors to hack on.
+
 * Interest over time
 
 .image images/interest.png _ 800
