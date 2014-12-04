@@ -6,7 +6,7 @@ var position = 0;
 	console.log(position = position + direction);
 })();
 
-(function flip(){
-	setTimeout(flip, 2000);
+(function turn(){
+	setTimeout(turn, 2000);
 	direction = -direction;
 })();

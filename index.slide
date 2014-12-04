@@ -47,7 +47,7 @@ Syntax derived from C
 
 - EventMachine is an event-driven I/O and lightweight concurrency library for Ruby. It provides event-driven I/O using the Reactor pattern, much like JBoss Netty, Apache MINA, Python's Twisted, Node.js, libevent and libev.
 
-- Cool.io is an alternative to EventMachine, albeit one which using Ruby’s own native I/O primitives rather than reinventing them, and does as much as possible in Ruby instead of C, which should make it easier for interested contributors to hack on.
+- If you are unhappy with EventMachine and want to use Ruby, check out Cool.io. One caveat: by May 2011, it did not support JRuby and Windows.
 
 * Interest over time
 
@@ -103,6 +103,14 @@ Syntax derived from C
 
 .code nodeserver/server.js
 
+* Concurrency?
+
+.code example/network.js
+
+* Danger
+
+.code example/networkhack.js
+
 # In Node there is no such start-the-event-loop call. Node simply enters the event loop after executing the input script. Node exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript -— the event loop is hidden from the user.
 
 * Debug tools
@@ -130,7 +138,7 @@ Syntax derived from C
 
 - Type system, Garbage collection
 
-- basic syntax modeled after c
+- basic syntax modeled after C
 # It's been pointed out that C's read in a spiral! See The "Clockwise/Spiral Rule" by David Anderson.
 - Build time
 #When builds are slow, there is time to think. The origin myth for Go states that it was during one of those 45 minute builds that Go was conceived.
@@ -152,6 +160,8 @@ Syntax derived from C
     func sum(func(int) int, int) func() int {
         return func() int { return 1 }
     }
+
+.image images/circle.png
 
 * Declarative Syntax cont.d
 
@@ -186,8 +196,8 @@ In programming, concurrency is the composition of independently executing proces
 
 - goroutine
 
-- channels (CSP)
-
+- channels Communication Sequential Processes (Unix pipes)
+# Type-safe generalization of Unix Pipes
 - waitgroup
 
 * Channel
@@ -208,8 +218,18 @@ In programming, concurrency is the composition of independently executing proces
 
 .play example/wait.go
 
+* Debugging
+
+.link https://golang.org/doc/gdb
+
 * Learning
 
 .link http://gobyexample.com
 
+.link https://golang.org/doc/effective_go.html
+
+.link http://godoc.org
+
 .link http://howtonode.org
+
+
