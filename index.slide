@@ -33,21 +33,21 @@ Syntax derived from C
 
 * Python
 
-- Twisted: The granddaddy of Python reactor frameworks: seems complex and a bit bloated however. Steep learning curve for a small task.
+- *Twisted*: The granddaddy of Python reactor frameworks: steep learning curve for a small task
 
-- Eventlet: From the guys at lindenlab. Greenlet based framework that's geared towards these kinds of tasks. I had a look at the code though and it's not too pretty: non-pep8 compliant, scattered with prints (why do people do this in a framework!?), API seems a little inconsistent.
+- *Eventlet*: non-pep8 compliant, scattered with prints (why do people do this in a framework!?), API seems a little inconsistent.
 
-- PyEv: Immature, doesn't seem to be anyone using it right now though it is based on libevent so it's got a solid backend.
+- *PyEv*: Immature
 
-- asyncore: From the stdlib: über low-level, seems like a lot of legwork involved just to get something off the ground.
+- *asyncore*: über low-level
 
-- tornado: Though this is a server oriented product designed to server dynamic websites it does feature an async HTTP client and a simple ioloop. [edit: doesn't run on Windows unfortunately, which counts it out for me - its a requirement for me to support this lame platform]
+- *tornado*: feature an async HTTP client and a simple ioloop. No support for Windows
 
 * Ruby
 
-- EventMachine is an event-driven I/O and lightweight concurrency library for Ruby. It provides event-driven I/O using the Reactor pattern, much like JBoss Netty, Apache MINA, Python's Twisted, Node.js, libevent and libev.
+- *EventMachine* is an event-driven I/O and lightweight concurrency library for Ruby
 
-- If you are unhappy with EventMachine and want to use Ruby, check out Cool.io. One caveat: by May 2011, it did not support JRuby and Windows.
+- *Cool.io* If you are unhappy with EventMachine and want to use Ruby, check out Cool.io. One caveat: by May 2011, it did not support JRuby and Windows.
 
 * Interest over time
 
