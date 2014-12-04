@@ -109,10 +109,12 @@ JBoss Netty, Apache MINA, libevent and libev
 
 * Concurrency?
 
+    //network.js
 .code example/network.js
 
 * Danger
 
+    //networkhack.js
 .code example/networkhack.js
 
 # In Node there is no such start-the-event-loop call. Node simply enters the event loop after executing the input script. Node exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript -— the event loop is hidden from the user.
