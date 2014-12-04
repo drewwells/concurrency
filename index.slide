@@ -222,6 +222,17 @@ In programming, concurrency is the composition of independently executing proces
 
 .play example/wait.go
 
+* Concurrency is scary
+
+    $ go test -race
+
+The race detector is based on the C/C++ ThreadSanitizer runtime library, which has been used to detect many errors in Google's internal code base and in Chromium.
+
+    $ go test -race mypkg    // test the package
+    $ go run -race mysrc.go  // compile and run the program
+    $ go build -race mycmd   // build the command
+    $ go install -race mypkg // install the package
+
 * Debugging
 
 .link https://golang.org/doc/gdb
