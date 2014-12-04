@@ -49,6 +49,10 @@ Syntax derived from C
 
 - *Cool.io* If you are unhappy with EventMachine and want to use Ruby, check out Cool.io. One caveat: by May 2011, it did not support JRuby and Windows.
 
+*** *Others*
+
+JBoss Netty, Apache MINA, libevent and libev
+
 * Interest over time
 
 .image images/interest.png _ 800
