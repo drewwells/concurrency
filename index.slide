@@ -5,7 +5,7 @@ Drew Wells
 RetailMeNot
 dwells@rmn.com
 @coldfuser
-http://go-talks.appspot.com/github.com/drewwells/concurrency/index.slide
+http://github.com/drewwells/concurrency/index.slide
 
 * Birthdays
 
@@ -40,8 +40,6 @@ Syntax derived from C
 
 .image images/php.png _ 800
 
-* Why not Python/Ruby/Java/etc?
-
 * What language?
 
 *** NodeJS
@@ -59,16 +57,25 @@ Syntax derived from C
 * Design
 
 - Single Threaded
-# Within the Node.js runtime, each connection is a small heap allocation.
+
 - Event Loop
-# Not a new idea, built on Python/Ruby libraries
 # Almost no function in Node directly performs I/O, so the process never blocks. Because nothing blocks, less-than-expert programmers are able to develop scalable systems.
+- V8 + Evented I/O
+
+- Non-blocking
 
 # http://nodejs.org/about/
 
 * If you can't beat them, join them
 
-Node is similar in design to and influenced by systems like Ruby's Event Machine or Python's Twisted.
+- Ruby's Event Machine
+
+- Python's Twisted
+
+"Almost no function in Node directly performs I/O, so the process never blocks. Because nothing blocks, less-than-expert programmers are able to develop scalable systems."
+
+.link http://nodejs.org/about
+# Concurrency is hard, so no attempts are made to deal with it.
 
 * walker.js
 
@@ -84,18 +91,107 @@ Node is similar in design to and influenced by systems like Ruby's Event Machine
 
     node debug server.js
 
-
-
-
 .link https://github.com/node-inspector/node-inspector node-inspector
 
+* child_process.fork()
 
-* child_process
-Just because Node is designed without threads, doesn't mean you cannot take advantage of multiple cores in your environment. You can spawn child processes that are easy to communicate with by using our child_process.fork() API.
+- No shared memory
+
+- 30ms startup 10mb memory
+
+- synchronous channel via child.send()
+# Sending large data in this way is ill advised
 
 * Golang
 
-* Simplicity
-.image images/perfection.jpg _ 600
-.caption Antoine de Saint-Exupery
+* Design
 
+- compiled, concurrent, garbage-collected, statically typed language
+
+- Networking and Multicore support
+
+- Type system, Garbage collection
+
+- basic syntax modeled after c
+# It's been pointed out that C's read in a spiral! See The "Clockwise/Spiral Rule" by David Anderson.
+- Build time
+#When builds are slow, there is time to think. The origin myth for Go states that it was during one of those 45 minute builds that Go was conceived.
+
+.image images/gopher-help.png
+
+* Declarative Syntax
+
+    i int
+    p *int
+    a [3]int
+
+*** Functions
+
+    func main(arga int, argv []string) int
+
+*** Scales well
+
+    func sum(func(int) int, int) func() int {
+        return func() int { return 1 }
+    }
+
+* Declarative Syntax cont.d
+
+    a [3]int
+    a[2]
+
+Pointers
+
+    *(*int)(ptr)
+
+* Parallelism
+
+- Goroutines
+
+- Multiplexed on a single thread
+
+- GOMAXPROCS
+
+- Hundreds of thousands of goroutines per thread
+
+* Parallelism
+
+.play example/parallel.go
+
+* Concurrency
+
+In programming, concurrency is the composition of independently executing processes, while parallelism is the simultaneous execution of (possibly related) computations. Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.
+
+.link http://blog.golang.org/concurrency-is-not-parallelism
+
+* Concurrency
+
+- goroutine
+
+- channels (CSP)
+
+- waitgroup
+
+* Channel
+
+.play example/deadlock.go
+
+* Buffered Channel
+
+- Unbuffered channels only accept sends (chan <-) if there is a corresponding receive (<- chan)
+
+.play example/channel.go
+
+* Buffered Channel
+
+.play example/cochannel.go
+
+* Waitgroup
+
+.play example/wait.go
+
+* Learning
+
+.link http://gobyexample.com
+
+.link http://howtonode.org
